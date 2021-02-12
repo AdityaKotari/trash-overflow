@@ -43,48 +43,66 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <!-- Compiled and minified JavaScript -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
  crossorigin=""></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
  <script>
 
 
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+      $('#hamburger').click(function(){
+        $('.leaflet-control').hide(); 
+      })
+
+      $('.sidenav-overlay').click(function(){
+        $('.leaflet-control').show(); 
+      }); 
+
+      $('.sidenav').click(function(){
+        $('.leaflet-control').show(); 
+      }); 
+      
+      
+    });
+  
 
   //hide footer when input box is on focus
-$(document).on('focus', 'input, textarea', function() {
+// $(document).on('focus', 'input, textarea', function() {
 
 
-  if( navigator.userAgent.match(/Android/i)
- || navigator.userAgent.match(/webOS/i)
- || navigator.userAgent.match(/iPhone/i)
- || navigator.userAgent.match(/iPad/i)
- || navigator.userAgent.match(/iPod/i)
- || navigator.userAgent.match(/BlackBerry/i)
- || navigator.userAgent.match(/Windows Phone/i)){
-  $(".tabsCont").hide();
- }
+//   if( navigator.userAgent.match(/Android/i)
+//  || navigator.userAgent.match(/webOS/i)
+//  || navigator.userAgent.match(/iPhone/i)
+//  || navigator.userAgent.match(/iPad/i)
+//  || navigator.userAgent.match(/iPod/i)
+//  || navigator.userAgent.match(/BlackBerry/i)
+//  || navigator.userAgent.match(/Windows Phone/i)){
+//   $(".tabsCont").hide();
+//  }
     
-});
+// });
 
-//show footer when input is NOT on focus
-$(document).on('blur', 'input, textarea', function() {
+// //show footer when input is NOT on focus
+// $(document).on('blur', 'input, textarea', function() {
 
 
-  if( navigator.userAgent.match(/Android/i)
- || navigator.userAgent.match(/webOS/i)
- || navigator.userAgent.match(/iPhone/i)
- || navigator.userAgent.match(/iPad/i)
- || navigator.userAgent.match(/iPod/i)
- || navigator.userAgent.match(/BlackBerry/i)
- || navigator.userAgent.match(/Windows Phone/i)){
-  $(".tabsCont").show();
- }
+//   if( navigator.userAgent.match(/Android/i)
+//  || navigator.userAgent.match(/webOS/i)
+//  || navigator.userAgent.match(/iPhone/i)
+//  || navigator.userAgent.match(/iPad/i)
+//  || navigator.userAgent.match(/iPod/i)
+//  || navigator.userAgent.match(/BlackBerry/i)
+//  || navigator.userAgent.match(/Windows Phone/i)){
+//   $(".tabsCont").show();
+//  }
     
-});
+// });
 
    
 

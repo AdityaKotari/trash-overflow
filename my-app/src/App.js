@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from './components/Navbar'; 
-import SideBar from './components/SideBar'; 
+import Navbar from './components/Navbar/Navbar'; 
+import Sidenav from './components/Navbar/Sidenav'; 
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -22,7 +22,7 @@ function App() {
      <Router>
    <div className = "myApp">
     <Navbar />
-        
+        <Sidenav /> 
        
         <Switch>
           <Route exact path="/">
@@ -46,7 +46,7 @@ function App() {
         </Switch>
 
   
-   <SideBar /> 
+
    </div>
    </Router> 
    

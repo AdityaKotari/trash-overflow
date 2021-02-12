@@ -10,53 +10,7 @@
      padding-top: 6px;
 }
 
-.mapclass { height: 87vh }
+.mapclass { height: 100vh }
 
 
-
-@media only screen and (max-height: 640px) 
-{
-  .mapclass
-  {
-    height: 80vh;
-  }
-}
-
-
-@media only screen and (min-height: 600px) 
-{
-  
-  .mapclass
-  {
-    height: 84vh;
-  }
-}
-
-.tabs .tab a:focus.active {
-  
-  /*Custom Text Color While Active*/
-  background-color: rgb(230, 255, 230);
-  /*Custom Background Color While Active*/
-}
-
-.tabs .indicator {
-  background-color:green;
-  /*Custom Color Of Indicator*/
-}
-
-@media only screen and (min-height: 700px) 
-{
-  .mapclass
-  {
-    height: 85vh;
-  }
-}
-
-@media only screen and (min-height: 800px) 
-{
-  .mapclass
-  {
-    height: 87vh;
-  }
-}
 
