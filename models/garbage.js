@@ -1,7 +1,8 @@
 
 const mongoose = require('mongoose');
+const {ObjectId} = mongoose.Schema.Types
 
-const garbageSchema = new Schema({
+const garbageSchema = new mongoose.Schema({
     //latitude and longitude
     lat:{
         type: Number,
@@ -13,14 +14,20 @@ const garbageSchema = new Schema({
     },
 
     //Garbage identifier user details 
-    identifier_profile: String,
+    postedBy:{
+        type:ObjectId,
+        ref:"User"
+    },
     reward: Number,
     date: { 
         type: Date, 
         default: Date.now 
     },
-    //have to store images somehow
+    photos:{
+        type: String,
+        default:""
+    }
 });
 
 
-mongoose.model("User", garbageSchema);
+module.exports = mongoose.model("Garbage", garbageSchema, 'garbage-spots');
