@@ -1,16 +1,21 @@
 import React from 'react'; 
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 import './Profile.css'
 
+
 const profileBanner ={
-    height: '400px',
+    height: '500px',
     width: '100%',
-    background: 'linear-gradient(135deg, rgba(10,4,60,1) 0%, rgba(9,9,121,1) 32%, rgba(3,80,111,1) 100%)'
+    background: 'rgb(26,35,126)',
+    background: 'linear-gradient(135deg, rgba(26,35,126,1) 0%, rgba(87,99,230,1) 100%)',
 }
 
 const imgStyle = {
-    height: '200px',
-    width: 'auto'
+    padding: '30px',
+    height: '375px',
+    borderRadius: '300px'
   };
   
 
@@ -22,45 +27,45 @@ const Profile = () => {
             <div className="row">
                 <div className='center-align'>
                     <div className='valign'>
-                        <img className="circle responsive-img" src="https://i.redd.it/jcof4raly0j41.jpg" alt="Profile" style={imgStyle}></img>
+                        <img className='responsive image' src="https://i.redd.it/jcof4raly0j41.jpg" alt="Profile" style={imgStyle}></img>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div className="row" id='centerrow'>
-                <div class="col s12">
-                <div className='center-align'><h1><p>John Doe</p></h1></div>
+            <div className="row" id='centerrow'>
+                <div class="col s12 offset-by-6">
+                <div className='center-align' style={{color: 'white', font: 'Roboto'}}><h3><p>John Doe</p></h3></div>
                 </div>
         </div>
-         <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">Details</a></li>
-        <li class="tab col s3"><a class="active" href="#test2">Stats</a></li>
-      </ul>
-    </div>
-    <div id="test1" class="col s12">Test 1</div>
-    <div id="test2" class="col s12">
-    <div class="row">
-            <div class="col s3">
+        </div>
+        <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
+            <TabList>
+                <Tab>Details</Tab>
+                <Tab>Stats</Tab>
+            </TabList>
+            <TabPanel>
+                Random Stuff
+            </TabPanel>
+            <TabPanel>
+            <div className='row'>
+                <div class="col s6 offset-by-3">
                     <div class="card pink lighten-5">
                     <div class="card-content black-text">
                     <span class="card-title">42</span>
                     <p>Spots Cleaned Up Yet</p>
                     </div>
                 </div>    
-            </div> 
-                
-            <div class="col s3">
+                </div> 
+                <div class="col s6 offset-by-3">
                 <div class="card pink lighten-5">
                     <div class="card-content black-text">
                     <span class="card-title">10,000</span>
                     <p>Rewards Earned Till Now</p>
                     </div>
                 </div>
+                </div>
             </div>
-            <div class="col s3">
+        <div className='row'>
+            <div class="col s6 offset-by-3">
                 <div class="card pink lighten-5">
                     <div class="card-content black-text">
                     <span class="card-title">2</span>
@@ -68,7 +73,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <div class="col s3">
+            <div class="col s6 offset-by-3">
                 <div class="card pink lighten-5">
                     <div class="card-content black-text">
                     <span class="card-title">56,000</span>
@@ -77,8 +82,9 @@ const Profile = () => {
                 </div>
             </div>
         </div>
-    </div>
-  </div>
+            </TabPanel>
+        </Tabs>
+        
 
         
     </div>

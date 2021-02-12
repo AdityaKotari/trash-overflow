@@ -5,7 +5,7 @@ const Navbar = () => {
     return(
         
       <div className="navbar-fixed">
-      <nav className="nav-wrapper green">
+      <nav className="nav-wrapper indigo darken-4">
       
       <a href="#" className="brand-logo">TrashOverflow</a>
           <a href="#" className="sidenav-trigger" data-target="mobile-links">
