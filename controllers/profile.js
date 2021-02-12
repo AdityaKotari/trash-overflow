@@ -3,22 +3,17 @@ Includes the following routes:
 /signup - makes a new user entry
 /login - verifies credentials, returns bearer token
 /userData - sends back json-ified user (mongoose) document
-
-Middleware:
-requireLogin - checks if bearer token for a logged-in user is valid
-
-
 */
 var express = require('express');
 var router = express.Router();
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
-
+const requireLogin = require('../utility/requireLogin.js')
 
 var mongoose = require('mongoose');
 var db = require('../utility/db.js');
-var User = require("../models/user");
+var User = require('../models/user');
 
 //adds a new user to db, requires {name, email, password}
 router.post('/signup', (req, res) => {
@@ -45,13 +40,9 @@ router.post('/signup', (req, res) => {
                         })
                         .catch((error) => {
                             console.log(error);
-                        });
-
-
+                        })
                 })
-
-
-        });
+    })
 })
 
 //logs in a user, requires {email, password}
@@ -83,33 +74,12 @@ router.post('/login', (req, res) => {
 
 })
 
-
-//middleware for protected get requests, verfies bearer token in request
-const requireLogin = (req, res, next) => {
-    const {bearer} = req.body;
-    //req body/json => "bearer":"lfsjiejfoljoljffw"
-    if(!bearer){
-        return res.status(401).json({error:"you must be logged in"})
-    }
-    jwt.verify(bearer, process.env.jwt_secret, (error, payload) =>{
-        if(error){
-            return res.status(401).json({error:"you must be logged in"})
-        }
-
-        const {_id} = payload
-        User.findById(_id).then(userData => {
-            req.user = userData
-        })
-        next()
-    })
-}
-
 //gets user data
 router.get('/userData', requireLogin, (req, res) => {
     const {bearer} = req.body;
     //req body/json => "bearer":"lfsjiejfoljoljffw"
     const id = jwt.decode(bearer)
-    User.findById(id).lean().exec(function (error, users) {
+    User.findById(id).lean().exec( (error, users) => {
         if(!error){
             return res.end(JSON.stringify(users))
         }
