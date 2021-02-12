@@ -1,5 +1,5 @@
 import React from 'react'; 
-
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return(
@@ -12,10 +12,18 @@ const Navbar = () => {
             <i className="material-icons" id="hamburger">menu</i>
           </a>
           <ul className="right hide-on-med-and-down">
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="" >Login</a></li>
+          <li> <NavLink className="sidenav-close" to = "/">
+              Scout
+         </NavLink></li>
+         <li><NavLink className="sidenav-close" to = "/create_ad">
+              Post notice
+         </NavLink></li>
+         <li><NavLink className="sidenav-close" to = "/leaderboard">
+              Stats
+         </NavLink></li>
+         <li><NavLink className="sidenav-close" to = "/profile">
+              Profile
+         </NavLink></li>
           </ul>
         
       </nav>
