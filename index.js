@@ -4,6 +4,9 @@ require('dotenv').config();
 const port = process.env.PORT || 5000; 
 const router = (global.router = (express.Router()));
 
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(express.json());
 app.use('/profile', require('./controllers/profile.js'));
 app.use('/garbage', require('./controllers/garbage_spots.js'));
