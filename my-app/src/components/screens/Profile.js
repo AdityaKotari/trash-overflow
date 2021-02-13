@@ -55,7 +55,7 @@ const Profile = () => {
                 <div className='center-align' style={{color: 'white', font: 'Roboto'}}><h3><p>John Doe</p></h3></div>
                 </div>
         </div>
-        <Tabs defaultIndex={0} onSelect={index => console.log(index)}>
+        <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
             <TabList style={TabListStyle}>
                 <Tab style={TabStyle}>Details</Tab>
                 <Tab style={TabStyle}>Stats</Tab>

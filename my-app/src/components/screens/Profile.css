@@ -8,7 +8,7 @@
 .imgStyle {
     padding: '20px';
     width: '10%';
-    height: 10%;
+    height: auto;
     border-radius: '150px';
   }
 
