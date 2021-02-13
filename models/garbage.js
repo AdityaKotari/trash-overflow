@@ -18,12 +18,19 @@ const garbageSchema = new mongoose.Schema({
         type:ObjectId,
         ref:"User"
     },
-    reward: Number,
+    reward:{
+        type: Number,
+        required: true
+    },
     date: { 
         type: Date, 
         default: Date.now 
     },
-    photos:{
+    photo:{
+        type: String,
+        default:""
+    },
+    description:{
         type: String,
         default:""
     }
