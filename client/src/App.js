@@ -16,7 +16,7 @@ import Leaderboard from './components/screens/Leaderboard';
 import SignUp from './components/screens/SignUp/SignUp';
 import LogIn from './components/screens/LogIn/LogIn';
 import Profile from './components/screens/Profile'; 
-import CoordSearch from './components/screens/CoordSearch'; 
+
 import 'leaflet/dist/leaflet.css';
 
 export const UserContext = createContext()
@@ -57,10 +57,7 @@ const Routing = () =>
       <SignUp />
 
     </Route>
-    <Route path="/co_search">
-      <CoordSearch />
-
-    </Route>
+   
 
   </Switch>
   ); 
