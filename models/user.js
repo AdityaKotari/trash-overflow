@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
         type:Number,
         default:0
     },
+    phone:{
+        type: Number,
+        required: true
+    },
     paymentRecieved:{
         type:Number,
         default:0
