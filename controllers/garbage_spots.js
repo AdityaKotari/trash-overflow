@@ -17,7 +17,7 @@ var Garbage = require('../models/garbage')
 
 //
 router.post('/newGarbage', requireLogin, (req, res) => {
-  const {lng, lat, price, bearer, description} = req.body
+  const {lng, lat, price, description, photoURL} = req.body
   if(!lng||!lat||!bearer){
     return res.status(422).json({error:"some arguments are missing for a new garbage post"})
   }
@@ -26,6 +26,7 @@ router.post('/newGarbage', requireLogin, (req, res) => {
     lng,
     postedBy: req.user,
     reward: price,
+    photo: photoURL||""
   })
   garbage.save()
     .then(() => {
