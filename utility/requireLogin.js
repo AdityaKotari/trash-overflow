@@ -15,22 +15,46 @@ var User = require("../models/user");
 
 //middleware for protected get requests, verfies bearer token in request
 const requireLogin = (req, res, next) => {
-    const {bearer} = req.body;
-    //req body/json => "bearer":"lfsjiejfoljoljffw"
-    if(!bearer){
-        return res.status(401).json({error:"you must be logged in"})
+    const {authorization} = req.headers
+    //authorization === Bearer ewefwegwrherhe
+    if(!authorization){
+        console.log("No auth bearer"); 
+       return res.status(401).json({error:"You must be logged in to access this"})
     }
-    jwt.verify(bearer, process.env.jwt_secret, (error, payload) =>{
-        if(error){
-            return res.status(401).json({error:"you must be logged in"})
+    const token = authorization.replace("Bearer ","")
+    jwt.verify(token,process.env.jwt_secret,(err,payload)=>{
+        if(err){
+         return  res.status(401).json({error:"You must be logged in to access this"})
         }
 
         const {_id} = payload
-        User.findById(_id).then(userData => {
-            req.user = userData
+        User.findById(_id).then(userdata=>{
+            req.user = userdata
             next()
         })
+        
+        
     })
+
+
+
+
+    // const {authorization} = req.headers; 
+    // //req body/json => "bearer":"lfsjiejfoljoljffw"
+    // if(!bearer){
+    //     return res.status(401).json({error:"you must be logged in"})
+    // }
+    // jwt.verify(bearer, process.env.jwt_secret, (error, payload) =>{
+    //     if(error){
+    //         return res.status(401).json({error:"you must be logged in"})
+    //     }
+
+    //     const {_id} = payload
+    //     User.findById(_id).then(userData => {
+    //         req.user = userData
+    //         next()
+    //     })
+    // })
 }
 
 module.exports = requireLogin

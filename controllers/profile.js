@@ -61,8 +61,9 @@ router.post('/login', (req, res) => {
                 .then( (matches) => {
                     if(matches){
                         //res.json({message:"Successfully signed in"})
-                        const bearer = jwt.sign({_id:savedUser._id}, process.env.jwt_secret)
-                        res.json({bearer})
+                        const token = jwt.sign({_id:savedUser._id}, process.env.jwt_secret)
+                        const {_id,name,email,phone} = savedUser
+                        res.json({token, user:{_id,name,email,phone} })
                     }
                     else{
                         return res.status(422).json({error:"Invalid credentials"})

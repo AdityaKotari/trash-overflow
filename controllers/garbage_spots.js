@@ -19,7 +19,7 @@ var Garbage = require('../models/garbage')
 router.post('/newGarbage', requireLogin, (req, res) => {
   const {lng, lat, reward, description, photoURL} = req.body
   if(!lng||!lat){
-    return res.status(422).json({error:"some arguments are missing for a new garbage post"})
+    return res.status(422).json({error:"Null fields are not allowed"})
   }
   const garbage = new Garbage({
     lat,
