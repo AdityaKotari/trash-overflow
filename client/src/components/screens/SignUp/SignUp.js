@@ -4,7 +4,7 @@
 import React,{useState,useEffect} from 'react';
 import {Link,NavLink,useHistory} from 'react-router-dom';
 import M from 'materialize-css';
-import './SignUp.css';
+// import './SignUp.css';
 
 const SignUp = () => {
     const history = useHistory()

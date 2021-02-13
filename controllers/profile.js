@@ -19,13 +19,13 @@ var User = require('../models/user');
 router.post('/signup', (req, res) => {
     const { name, email, password, phone } = req.body;
     if (!email || !name || !password) {
-        return res.status(422).json({ error: "Some arguments are missing" });
+        return res.status(422).json({ error: "Null fields are not allowed" });
     }
 
     User.findOne({ email: email })
         .then((savedUser) => {
             if (savedUser) {
-                return res.status(422).json({ error: "An user already exists with this email" });
+                return res.status(422).json({ error: "A user having this email already exists" });
             }
             bcrypt.hash(password, 12)
                 .then((hashedPassword) => {
@@ -37,7 +37,7 @@ router.post('/signup', (req, res) => {
                     });
                     user.save()
                         .then(() => {
-                            res.json({ message: "Saved successfully" })
+                            res.json({ message: "Successfully registered!" })
                         })
                         .catch((error) => {
                             console.log(error);
@@ -50,7 +50,7 @@ router.post('/signup', (req, res) => {
 router.post('/login', (req, res) => {
     const {email, password} = req.body
     if(!email||!password){
-        return res.status(422).json({error:"Email or password is missing"});
+        return res.status(422).json({error:"Null fields are not allowed"});
     }
     User.findOne({email:email})
         .then(savedUser => {
@@ -65,7 +65,7 @@ router.post('/login', (req, res) => {
                         res.json({bearer})
                     }
                     else{
-                        return res.status(422).json({error:"Invalid password or email"})
+                        return res.status(422).json({error:"Invalid credentials"})
                     }
                 })
                 .catch( (error) => {

@@ -2,7 +2,7 @@ import React, {Component, useState,useEffect,useContext} from 'react';
 import { Icon } from "leaflet";
 import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import Modal from './Modal';
+
 
 export const icon = new Icon({
   iconUrl: "/images/placeholder.svg",

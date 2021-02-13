@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         default:0
     },
     phone:{
-        type: Number,
+        type: String,
         required: true
     },
     paymentRecieved:{

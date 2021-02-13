@@ -11,11 +11,11 @@ import {
 import Home from './components/screens/Home/Home'; 
 import CreateAd from './components/screens/CreateAd'; 
 import Leaderboard from './components/screens/Leaderboard'; 
-import SignUp from './components/SignUp/SignUp';
-import LogIn from './components/LogIn/LogIn';
+import SignUp from './components/screens/SignUp/SignUp';
+import LogIn from './components/screens/LogIn/LogIn';
 import Profile from './components/screens/Profile'; 
 import 'leaflet/dist/leaflet.css';
-import Modal from './components/screens/Home/Modal';
+
 // 
 function App() {
   return (
