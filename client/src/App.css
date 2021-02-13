@@ -16,5 +16,12 @@
 
 #postMap
 {
-  height: 50vh;
+  height: 30vh;
+}
+
+.geog {
+  border-bottom: none!important;
+  box-shadow: none!important;
+  font-weight: bold;
+  color: indigo;
 }

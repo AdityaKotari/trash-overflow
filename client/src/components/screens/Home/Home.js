@@ -16,6 +16,7 @@ import { icon } from '../../MapUtilities/Icons/Icon';
 
 const Home = () => {
 
+  
 
   const [data,setData] = useState([]);
  
@@ -33,7 +34,7 @@ const Home = () => {
    return (
 
     <div>
-      <MapContainer className="mapclass"  center={[24.833946, 92.779282]} zoom={14} scrollWheelZoom={true}>
+      <MapContainer className="mapclass"  center={[24.833946, 92.779282]} zoom={14} scrollWheelZoom={true} zoomControl={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
