@@ -17,7 +17,7 @@ var User = require('../models/user');
 
 //adds a new user to db, requires {name, email, password}
 router.post('/signup', (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, phone } = req.body;
     if (!email || !name || !password) {
         return res.status(422).json({ error: "Some arguments are missing" });
     }
@@ -32,7 +32,8 @@ router.post('/signup', (req, res) => {
                     const user = new User({
                         name,
                         email,
-                        password:hashedPassword
+                        password:hashedPassword,
+                        phone: phone
                     });
                     user.save()
                         .then(() => {
