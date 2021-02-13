@@ -16,13 +16,9 @@ const SignUp = () => {
             <form className="col s12" method="post">
 
                 <div className='row'>
-                <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate" />
-                    <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate" />
-                    <label for="last_name">Last Name</label>
+                <div class="input-field col s12">
+                    <input id="name" type="text" class="validate" />
+                    <label for="name">Full Name</label>
                 </div>
                 </div>
 
