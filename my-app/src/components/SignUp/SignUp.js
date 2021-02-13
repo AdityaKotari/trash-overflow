@@ -13,11 +13,11 @@ const SignUp = () => {
         <div className="container">
             <div className="z-depth-1 grey lighten-4 row" style={{display: "inline-block", padding: "32px 48px 0px 48px", border: "1px solid #EEE"}}>
 
-            <form className="col s12" method="post">
+            <form className="col s12" method="post" action="http://localhost:5000/profile/signup">
 
                 <div className='row'>
                 <div class="input-field col s12">
-                    <input id="name" type="text" class="validate" />
+                    <input id="name" type="text" class="validate" name="name" />
                     <label for="name">Full Name</label>
                 </div>
                 </div>
@@ -39,7 +39,7 @@ const SignUp = () => {
                 <br />
                 <center>
                 <div className='row'>
-                    <button type='submit' name='btn_signup' className='col s12 btn btn-large waves-effect indigo'>SIGNUP</button>
+                    <button type='submit' className='col s12 btn btn-large waves-effect indigo'>SIGNUP</button>
                 </div>
                 </center>
             </form>

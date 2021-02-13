@@ -19,7 +19,7 @@ var User = require('../models/user');
 router.post('/signup', (req, res) => {
     const { name, email, password } = req.body;
     if (!email || !name || !password) {
-        res.status(422).json({ error: "Some arguments are missing" });
+        return res.status(422).json({ error: "Some arguments are missing" });
     }
 
     User.findOne({ email: email })
