@@ -1,5 +1,8 @@
-//Routes for garbage spot data, clean up requests, etc. 
-
+/*
+includes:
+/newGarbage - makes new garbage spot, requires fields as shown below along with bearer token
+/allGarbage - returns all the garbage spots
+*/
 var express = require('express')
 var router = express.Router()
 
@@ -12,6 +15,7 @@ var db = require('../utility/db.js')
 var User = require('../models/user')
 var Garbage = require('../models/garbage')
 
+//
 router.post('/newGarbage', requireLogin, (req, res) => {
   const {lng, lat, price, bearer, description} = req.body
   if(!lng||!lat||!bearer){
@@ -32,17 +36,18 @@ router.post('/newGarbage', requireLogin, (req, res) => {
     });
 
 })
-router.get('/allGarbage', requireLogin, (req, res) => {
+
+//returns all the garbage spots in the database. 
+router.get('/allGarbage', (req, res) => {
   Garbage.find({}).lean().exec( (error, garbageSpots) => {
     if(!error){
-        return res.end(JSON.stringify(garbageSpots))
+        return res.json(garbageSpots)
     }
     else{
         res.status(422).send(error)
     }
     
-})
+  })
 })
 
 module.exports = router;
-

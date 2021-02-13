@@ -60,8 +60,8 @@ router.post('/login', (req, res) => {
                 .then( (matches) => {
                     if(matches){
                         //res.json({message:"Successfully signed in"})
-                        const token = jwt.sign({_id:savedUser._id}, process.env.jwt_secret)
-                        res.json({token})
+                        const bearer = jwt.sign({_id:savedUser._id}, process.env.jwt_secret)
+                        res.json({bearer})
                     }
                     else{
                         return res.status(422).json({error:"Invalid password or email"})
@@ -81,13 +81,25 @@ router.get('/userData', requireLogin, (req, res) => {
     const id = jwt.decode(bearer)
     User.findById(id).lean().exec( (error, users) => {
         if(!error){
-            return res.end(JSON.stringify(users))
+            return res.json(users)
         }
         else{
             res.status(404).send(error)
         }
         
     })
+})
+
+//returns leaderboard of top 10 earners
+router.get('/leaderboard', (req, res) => {
+    User.find({}).sort({spotsCleaned: -1}).limit(10).exec( (error, leaderboard) => {        
+        if(!error){
+            return res.json(leaderboard)
+        }
+        else{
+            res.status(422).send(error)
+        }
+    });
 })
 
 module.exports = router;

@@ -17,12 +17,12 @@ class Home extends Component{
         return (
 
           <div>
-            <MapContainer className="mapclass"  center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
+            <MapContainer className="mapclass"  center={[24.826921, 92.784841]} zoom={14} scrollWheelZoom={true}>
               <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker position={[51.505, -0.09]}  icon={icon}>
+              <Marker position={[24.833946, 92.779282]}  icon={icon}>
                 <Popup>
                   
                   <div class="card">
