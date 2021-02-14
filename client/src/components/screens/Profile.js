@@ -5,7 +5,7 @@ import './Profile.css'
 
 
 const profileBanner ={
-    height: '70vh',
+    height: '67vh',
     width: '100%',
     background: 'linear-gradient(135deg, rgba(26,35,126,1) 0%, rgba(87,99,230,1) 100%)',
 }
@@ -13,7 +13,7 @@ const profileBanner ={
 const imgStyle = {
     padding: '30px',
     height: '275px',
-    borderRadius: '200px'
+    borderRadius: '50vh'
   };
 
 const TabListStyle ={
@@ -91,18 +91,6 @@ const Profile = () => {
             <TabPanel>
                 <div>
                     <form className='row s12'>
-                        <div className='row'>
-                            <div className='input-field col s12'>
-                            <i class="material-icons prefix">home</i>
-                                <input placeholder='First Address Line' id='first_address_line' type='text' class='validate'></input>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='input-field col s12'>
-                            <i class="material-icons prefix">home</i>
-                                <input placeholder='Second Address Line' id='second_address_line' type='text' class='validate'></input>
-                            </div>
-                        </div>
                         <div className='row'>
                             <div className='input-field col s12'>
                             <i class="material-icons prefix">phone</i>

@@ -39,10 +39,7 @@ const Leaderboard = () => {
                 <div className="card-content white-text">
                 <span className="card-title">Rank {index+1}</span>
                 <div className='row'>
-                <div className='col s6'>
-                    <img className='responsive image' src="https://i.redd.it/jcof4raly0j41.jpg" alt="Profile" style={imgStyle}></img>
-                </div>
-                <div className='col s6' style={{paddingInline:'10px', paddingLeft: '10px', textAlign:'center'}}>
+                <div className='col s12' style={{paddingInline:'10px', paddingLeft: '10px', textAlign:'center'}}>
                 <h3><p>{user.name}</p></h3>
                 <h4><p>{user.spotsCleaned}</p></h4>
                 <h5><p>Spots Cleaned</p></h5>
