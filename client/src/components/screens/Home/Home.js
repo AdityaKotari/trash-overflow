@@ -34,7 +34,7 @@ const Home = () => {
    return (
 
     <div>
-      <MapContainer className="mapclass"  center={[24.833946, 92.779282]} zoom={13} scrollWheelZoom={true} zoomControl={false}>
+      <MapContainer className="mapclass"  center={[26.7509, 94.2037]} zoom={13} scrollWheelZoom={true} zoomControl={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -82,24 +82,24 @@ const Home = () => {
 
     icon={icon}
   >
-    <Popup><div class="card">
-      <div class="card-image waves-effect waves-block waves-light">
+    <Popup><div className="card">
+      <div className="card-image waves-effect waves-block waves-light">
         <img src={item.photo} />
       </div>
-      <div class="card-content">
+      <div className="card-content">
         <span class="card-title activator grey-text text-darken-4">{item.title}</span>
-        <p><a href="#">&#8377; {item.reward} offered</a>  </p>
+        <p><a href="#"><b><h5>&#8377;{item.reward} offered</h5></b></a>  </p>
         <p>
   <a href="#" style={{ textTransform: 'uppercase', fontWeight:'bold'}} >{item.address} </a>  </p>
         <ul>
           <p>{item.description}</p>
         </ul>
       </div>
-      <div class="card-action">
-        <a href="#"> Elon Musk</a>
+      <div className="card-action">
+        <a href="#" style = {{color: "black" , fontWeight:"bold"}}> Posted by  {item.postedBy.name}</a>
        </div>
-      <div class="card-reveal">
-      <span class="card-title orange-text text-black-4">ELON MUSK<i class="material-icons right">close</i></span>
+      <div className="card-reveal">
+      <span className="card-title orange-text text-black-4">{item.postedBy.name}<i class="material-icons right">close</i></span>
       <br></br>
       <div class="card-image waves-effect waves-block waves-light">
         <img src="https://images.unsplash.com/photo-1576558656222-ba66febe3dec?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
@@ -107,15 +107,15 @@ const Home = () => {
       <ul className="collection">
       <li className="collection-item avatar">
       <i className="material-icons circle indigo">phone</i>
-      <span className="title">Contact</span>
-      <p>6000439169
+      <span className="title" style = {{color: "black" , fontWeight:"bold"}}>Contact</span>
+      <p>{item.postedBy.phone}
       </p>
       
     </li>
     <li className="collection-item avatar">
       <i className="material-icons circle indigo">location_on</i>
-      <span className="title">Site</span>
-      <p>6000439169
+      <span className="title" style = {{color: "black" , fontWeight:"bold"}}>Landmark</span>
+      <p>{item.address}
       </p>
       
     </li>
