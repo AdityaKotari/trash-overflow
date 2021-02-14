@@ -95,13 +95,13 @@ const Profile = () => {
                         <div className='row'>
                             <div className='input-field col s12'>
                             <i class="material-icons prefix">phone</i>
-                                <input placeholder='Contact Number' id='phone' type='tel' class='validate'></input>
+                                <input placeholder='Contact Number' id='phone' type='tel' class='validate' value = {items.phone}></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='input-field col s12'>
                             <i class="material-icons prefix">email</i>
-                                <input placeholder='Email' id='email' type='email' class='validate'></input>
+                                <input placeholder='Email' id='email' type='email' class='validate' value = {items.email}></input>
                             </div>
                         </div>
                     </form>
