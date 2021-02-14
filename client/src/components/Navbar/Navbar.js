@@ -19,6 +19,9 @@ import {UserContext} from '../../App';
 <li><NavLink className="sidenav-close" to = "/profile">
     Profile
 </NavLink></li>
+<li><NavLink className="sidenav-close" to = "/SocialFeed">
+    Social
+</NavLink></li>
 </ul>
 
 const Navbar = () => {
@@ -42,7 +45,9 @@ const Navbar = () => {
                         <li><NavLink className="sidenav-close" to="/profile">
                              Profile
 </NavLink></li>
-
+                            <li><NavLink className="sidenav-close" to="/SocialFeed">
+                             Social
+                    </NavLink></li>
                    </ul>
 
               ]
