@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, {useState, useEffect} from 'react'; 
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
 import './Profile.css'
@@ -39,6 +39,34 @@ const TabStyle ={
   
 
 const Profile = () => {
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', "Bearer "+localStorage.getItem("jwt"));
+
+        const myRequest = new Request('/profile/userData', {
+            method: 'GET',
+            headers: myHeaders
+        });
+        
+        fetch(myRequest)
+        .then(res => res.json())
+        .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  }, [])
     return(
         
     <div>
@@ -52,7 +80,7 @@ const Profile = () => {
             </div>
             <div className="row" id='centerrow'>
                 <div class="col s12 offset-by-6">
-                <div className='center-align' style={{color: 'white', font: 'Roboto'}}><h3><p>John Doe</p></h3></div>
+                <div className='center-align' style={{color: 'white', font: 'Roboto'}}><h3><p>{items.name}</p></h3></div>
                 </div>
         </div>
         <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
@@ -95,16 +123,16 @@ const Profile = () => {
                 <div class="col s6 offset-by-3">
                     <div class="card pink lighten-5">
                     <div class="card-content black-text">
-                    <span class="card-title"><div style={{textAlign:'center'}}><b>42</b></div></span>
-                    <div style={{textAlign:'center'}}><p>Spots Cleaned Up Yet</p></div>
+                    <span class="card-title"><div style={{textAlign:'center'}}><b>{items.spotsCleaned}</b></div></span>
+                    <div style={{textAlign:'center'}}><p>Spots Cleaned Up</p></div>
                     </div>
                 </div>    
                 </div> 
                 <div class="col s6 offset-by-3">
                 <div class="card pink lighten-5">
                     <div class="card-content black-text">
-                    <span class="card-title"><div style={{textAlign:'center'}}><b>10,000</b></div></span>
-                    <div style={{textAlign:'center'}}><p>Rewards Earned Till Now</p></div>
+                    <span class="card-title"><div style={{textAlign:'center'}}><b>{items.spotsCleaned/10}</b></div></span>
+                    <div style={{textAlign:'center'}}><p>Tier ({10-items.spotsCleaned%10} spots to level up)</p></div>
                     </div>
                 </div>
                 </div>
@@ -113,15 +141,15 @@ const Profile = () => {
             <div class="col s6 offset-by-3">
                 <div class="card pink lighten-5">
                     <div class="card-content black-text">
-                    <span class="card-title"><div style={{textAlign:'center'}}><b>2</b></div></span>
-                    <div style={{textAlign:'center'}}><p>Leaderboard Position</p></div>
+                    <span class="card-title"><div style={{textAlign:'center'}}><b>{items.TopPosition}</b></div></span>
+                    <div style={{textAlign:'center'}}><p>Top position on Leaderboard</p></div>
                     </div>
                 </div>
             </div>
             <div class="col s6 offset-by-3">
                 <div class="card pink lighten-5">
                     <div class="card-content black-text">
-                    <span class="card-title"><div style={{textAlign:'center'}}><b>56,000</b></div></span>
+                    <span class="card-title"><div style={{textAlign:'center'}}><b>{items.paymentRecieved}</b></div></span>
                     <div style={{textAlign:'center'}}><p>Payment Received</p></div>
                     </div>
                 </div>
