@@ -12,6 +12,11 @@ const garbageSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    title: 
+    {
+        type:String, 
+        required: true
+    }, 
 
     //Garbage identifier user details 
     postedBy:{

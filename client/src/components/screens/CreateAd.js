@@ -20,9 +20,12 @@ const CreateAd = (props) => {
     const [lng,setLng] = useState("")
     const [reward, setReward] = useState("")
     const [description, setDescription ] = useState("")
+    const [image,setImage] = useState("")
+    
    
     const [photoURL, setPhotoURL ] = useState("")
     const {isGeolocationAvailable,isGeolocationEnabled, coords } = props; 
+   
     
     
   useEffect(()=>{
@@ -34,12 +37,41 @@ const CreateAd = (props) => {
            
        }
  },[coords])
+
+
+
+ const imageDetails = ()=>{
+    const data = new FormData()
+    data.append("file",image)
+    data.append("upload_preset","trash-overflow")
+    data.append("cloud_name","dngglmcuk")
+    fetch("https://api.cloudinary.com/v1_1/dngglmcuk/image/upload",{
+        method:"post",
+        body:data
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.error){
+            M.toast({html: "Please add a photograph",classes:"#c62828 red darken-3"})
+         }
+         else
+         {
+            setPhotoURL(data.url)
+         }
+        
+    })
+    .catch(err=>{
+        
+        console.log(err)
+    })
+
+ 
+}
          
 
-   
-    const uploadAdDetails = () => 
-
-    {
+useEffect(() => {
+     if (photoURL)
+     {
         
         fetch("/garbage/newGarbage",{
             method:"post",
@@ -47,7 +79,7 @@ const CreateAd = (props) => {
                 "Content-Type":"application/json",
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             },
-            body:JSON.stringify({lng, lat, reward, description, photoURL})
+            body:JSON.stringify({lng, lat, reward, description, photoURL, title})
         }).then(res=>res.json())
         .then(data=>{
     
@@ -61,7 +93,14 @@ const CreateAd = (props) => {
         }).catch(err=>{
             console.log(err)
         })
-    }
+     }
+
+
+}, [photoURL])   
+
+
+   
+   
     
 
     return (
@@ -149,11 +188,20 @@ const CreateAd = (props) => {
                        </div>
                    </form>
                </div>
+                            <div className="file-field input-field">
+                                <div className="btn #64b5f6 indigo">
+                                    <span>Upload Image</span>
+                                    <input type="file" onChange={(e)=>setImage(e.target.files[0])} />
+                                </div>
+                                <div className="file-path-wrapper">
+                                    <input className="file-path validate" type="text" />
+                                </div>
+                            </div>
   
               
                <center>
                    <div className='row'>
-                       <button type='submit' name='btn_signup' className='col s12 btn btn-large waves-effect indigo'  onClick={()=> uploadAdDetails() }>POST</button>
+                       <button type='submit' name='btn_signup' className='col s12 btn btn-large waves-effect indigo'  onClick={()=> imageDetails() }>POST</button>
                    </div>
                </center>
            </form>

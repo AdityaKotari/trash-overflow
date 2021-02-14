@@ -84,13 +84,13 @@ const Home = () => {
   >
     <Popup><div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <img src="https://images.unsplash.com/photo-1537084642907-629340c7e59c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" />
+        <img src={item.photo} />
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Wet Organic Waste</span>
-        <p><a href="#">NIT Silchar ( {item.lat}, {item.lng} )</a> </p>
+        <span class="card-title activator grey-text text-darken-4">{item.title}</span>
+        <p><a href="#"> ( {item.lat}, {item.lng} )</a> </p>
         <ul>
-          <p>Area is 40 square m. Rich in organic wastes.</p>
+          <p>item.description</p>
         </ul>
       </div>
       <div class="card-action">
