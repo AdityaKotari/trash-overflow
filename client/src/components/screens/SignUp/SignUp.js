@@ -76,7 +76,7 @@ const SignUp = () => {
                 </div>
                 <div className='row'>
                 <div class="input-field col s12">
-                    <input id="phone" type="text" class="validate" name="phone" value={phone}
+                    <input id="phone" type="number" class="validate" name="phone" value={phone}
             onChange={(e)=>setPhone(e.target.value)}/>
                     <label for="phone">Contact number</label>
                 </div>

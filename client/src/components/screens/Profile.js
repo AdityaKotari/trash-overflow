@@ -5,15 +5,16 @@ import './Profile.css'
 
 
 const profileBanner ={
-    height: '67vh',
+    height: '58vh',
     width: '100%',
     background: 'linear-gradient(135deg, rgba(26,35,126,1) 0%, rgba(87,99,230,1) 100%)',
 }
 
 const imgStyle = {
-    padding: '30px',
-    height: '275px',
-    borderRadius: '50vh'
+    padding:"20px", 
+    width:"250px", 
+    height: '250px',
+    borderRadius: '50%'
   };
 
 const TabListStyle ={
@@ -70,11 +71,11 @@ const Profile = () => {
     return(
         
     <div>
-        <div class="container" style={profileBanner}>
+        <div class="container" style={profileBanner} class = "profileContainer">
             <div className="row">
                 <div className='center-align'>
                     <div className='valign'>
-                        <img className='responsive image' src="https://i.redd.it/jcof4raly0j41.jpg" alt="Profile" style={imgStyle}></img>
+                        <img className='responsive image' src="https://scontent.fgau1-1.fna.fbcdn.net/v/t1.0-1/p240x240/139170536_1306478816371855_6487459827788515745_o.jpg?_nc_cat=101&ccb=3&_nc_sid=7206a8&_nc_ohc=LpjJNBqtZhUAX8L3MuQ&_nc_ht=scontent.fgau1-1.fna&tp=6&oh=233b597351c9cace29627dab54368519&oe=604CD644" alt="Profile" style={imgStyle}></img>
                     </div>
                 </div>
             </div>
