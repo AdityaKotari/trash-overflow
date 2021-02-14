@@ -34,7 +34,7 @@ const Home = () => {
    return (
 
     <div>
-      <MapContainer className="mapclass"  center={[24.833946, 92.779282]} zoom={10} scrollWheelZoom={true} zoomControl={false}>
+      <MapContainer className="mapclass"  center={[24.833946, 92.779282]} zoom={13} scrollWheelZoom={true} zoomControl={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -97,12 +97,42 @@ const Home = () => {
       </div>
       <div class="card-action">
         <a href="#"> Elon Musk</a>
-      </div>
+       </div>
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">&#8377; 500<i class="material-icons right">close</i></span>
+      <span class="card-title orange-text text-black-4">ELON MUSK<i class="material-icons right">close</i></span>
+      <br></br>
+      <div class="card-image waves-effect waves-block waves-light">
+        <img src="https://images.unsplash.com/photo-1576558656222-ba66febe3dec?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+      </div>
+      <ul className="collection">
+      <li className="collection-item avatar">
+      <i className="material-icons circle indigo">phone</i>
+      <span className="title">Contact</span>
+      <p>6000439169
+      </p>
+      
+    </li>
+    <li className="collection-item avatar">
+      <i className="material-icons circle indigo">location_on</i>
+      <span className="title">Site</span>
+      <p>6000439169
+      </p>
+      
+    </li>
+
+      </ul>
+       
         <ul>
-          <li>40 sq m</li>
-          <li>Contains valuables</li>
+         
+                
+
+
+
+
+
+ 
+
+
         </ul>
       </div>
     </div>
