@@ -27,15 +27,19 @@ const Routing = () =>
 {
   const history = useHistory()
   const {state,dispatch} = useContext(UserContext)
-  // useEffect(()=>{
-  //   const user = JSON.parse(localStorage.getItem("user"))
-  //   if(user){
-  //     dispatch({type:"USER",payload:user})
-  //   }else{
-      
-  //          history.push('/login')
-  //   }
-  // },[])
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem("user"))
+    if(user){
+      dispatch({type:"USER",payload:user})
+    }else{
+      if(history.location.pathname.startsWith('/create_ad') || history.location.pathname.startsWith('/SocialFeed') )
+      {
+        history.push('/login'); 
+
+      }
+           
+    }
+  },[])
 
   return (
     <Switch>

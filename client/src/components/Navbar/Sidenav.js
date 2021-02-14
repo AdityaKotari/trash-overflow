@@ -1,11 +1,19 @@
-import React from 'react'; 
-import { NavLink } from "react-router-dom";
+
+import React,{useContext,useRef,useEffect,useState} from 'react'
+import {NavLink ,useHistory} from 'react-router-dom'
+
+import {UserContext} from '../../App'; 
+
 
 const Sidenav = () => {
-    return(
-        <div>
-            
-            <ul className="sidenav" id="mobile-links">
+  const history = useHistory()
+
+  const {state,dispatch} = useContext(UserContext)
+    
+     const renderList = ()=>{
+          if(state){
+              return [
+                <ul className="sidenav" id="mobile-links">
                 <li><NavLink className="sidenav-close" to = "/">
              
          </NavLink></li>
@@ -40,8 +48,60 @@ const Sidenav = () => {
                 feed
               </i>Social
          </NavLink></li>
+         <li><NavLink className="sidenav-close" to="/login" onClick={()=>{
+              localStorage.clear()
+              dispatch({type:"CLEAR"})
+              history.push('/login')
+            }}>
+              <i class=" indigo-text small-text material-icons">
+                logout
+              </i>Logout
+         </NavLink></li>
+
 
   </ul>
+
+              ]
+          }else{
+            return [
+              <ul className="sidenav" id="mobile-links">
+              <li><NavLink className="sidenav-close" to = "/">
+           
+       </NavLink></li>
+              <li><NavLink to="" className="brand-logo sidenav-close"><i class="black-text small material-icons">
+              delete_sweep
+
+            </i>
+             TRASH OVERFLOW</NavLink>
+              </li>
+          <li> <NavLink className="sidenav-close" to = "/">
+            <i class=" indigo-text small-text material-icons">
+            cleaning_services
+            </i>Scout
+       </NavLink></li>
+       
+       <li><NavLink className="sidenav-close" to = "/leaderboard">
+            <i class=" indigo-text small-text material-icons">
+              leaderboard
+            </i>Stats
+       </NavLink></li>
+      
+       <li><NavLink className="sidenav-close" to = "/login">
+            <i class=" indigo-text small-text material-icons">
+              login
+            </i>Login
+       </NavLink></li>
+       
+
+</ul>
+            ]
+          }
+        }
+
+    return(
+        <div>
+            
+           {renderList()}
         </div>
     
     ); 

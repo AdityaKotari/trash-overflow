@@ -77,7 +77,7 @@ const LogIn = () =>{
                 </div>
                 </center>
             </form>
-            <NavLink to="/signup">Create account</NavLink>
+            <p>New user? <NavLink to="/signup">Register</NavLink></p>
             <div className="section"></div>
             </div>
         </div>
