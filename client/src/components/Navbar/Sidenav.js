@@ -35,8 +35,8 @@ const Sidenav = () => {
          </NavLink></li>
          <li><NavLink className="sidenav-close" to = "/leaderboard">
               <i class=" indigo-text small-text material-icons">
-                leaderboard
-              </i>Stats
+                people
+              </i>Community
          </NavLink></li>
          <li><NavLink className="sidenav-close" to = "/profile">
               <i class=" indigo-text small-text material-icons">
@@ -81,10 +81,10 @@ const Sidenav = () => {
        </NavLink></li>
        
        <li><NavLink className="sidenav-close" to = "/leaderboard">
-            <i class=" indigo-text small-text material-icons">
-              leaderboard
-            </i>Stats
-       </NavLink></li>
+              <i class=" indigo-text small-text material-icons">
+                people
+              </i>Community
+         </NavLink></li>
       
        <li><NavLink className="sidenav-close" to = "/login">
             <i class=" indigo-text small-text material-icons">

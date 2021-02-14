@@ -38,7 +38,12 @@ const garbageSchema = new mongoose.Schema({
     description:{
         type: String,
         default:""
-    }
+    }, 
+    address:{
+        type: String,
+        default:""
+    }, 
+
 });
 
 
