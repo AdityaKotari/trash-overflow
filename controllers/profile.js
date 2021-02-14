@@ -78,9 +78,9 @@ router.post('/login', (req, res) => {
 
 //gets user data
 router.get('/userData', requireLogin, (req, res) => {
-    const {bearer} = req.body;
+    const {authorization} = req.headers
     //req body/json => "bearer":"lfsjiejfoljoljffw"
-    const id = jwt.decode(bearer)
+    const id = jwt.decode(authorization.replace("Bearer ",""))
     User.findById(id).lean().exec( (error, users) => {
         if(!error){
             return res.json(users)

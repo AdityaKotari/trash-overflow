@@ -47,7 +47,7 @@ const Leaderboard = () => {
                 <h4><p>{user.spotsCleaned}</p></h4>
                 <h5><p>Spots Cleaned</p></h5>
                 
-                <h4><p>56,000</p></h4>
+                <h4><p>{user.paymentRecieved}</p></h4>
                 <h5><p>Income Earned</p></h5>
                 </div>
                 </div>
