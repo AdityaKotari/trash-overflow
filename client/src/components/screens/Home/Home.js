@@ -90,7 +90,7 @@ const Home = () => {
         <span class="card-title activator grey-text text-darken-4">{item.title}</span>
         <p><a href="#"> ( {item.lat}, {item.lng} )</a> </p>
         <ul>
-          <p>item.description</p>
+          <p>{item.description}</p>
         </ul>
       </div>
       <div class="card-action">
