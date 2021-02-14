@@ -34,7 +34,7 @@ const Home = () => {
    return (
 
     <div>
-      <MapContainer className="mapclass"  center={[24.833946, 92.779282]} zoom={14} scrollWheelZoom={true} zoomControl={false}>
+      <MapContainer className="mapclass"  center={[24.833946, 92.779282]} zoom={10} scrollWheelZoom={true} zoomControl={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -88,13 +88,15 @@ const Home = () => {
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">{item.title}</span>
-        <p><a href="#"> ( {item.lat}, {item.lng} )</a> </p>
+        <p><a href="#">&#8377; {item.reward} offered</a>  </p>
+        <p>
+  <a href="#" style={{ textTransform: 'uppercase', fontWeight:'bold'}} >{item.address} </a>  </p>
         <ul>
-          <p>item.description</p>
+          <p>{item.description}</p>
         </ul>
       </div>
       <div class="card-action">
-        <a href="#">ACCEPT OFFER</a>
+        <a href="#"> Elon Musk</a>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">&#8377; 500<i class="material-icons right">close</i></span>

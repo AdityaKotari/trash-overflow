@@ -42,16 +42,31 @@ module.exports.newGarbage_post = (req, res) => {
 }
 
 
-module.exports.allGarbage_get =  (req, res) => {
-  Garbage.find({}).lean().exec( (error, garbageSpots) => {
-    if(!error){
-        return res.json(garbageSpots)
-    }
-    else{
-        res.status(422).send(error)
-    }
+module.exports.allGarbage_get =  async (req, res) => {
+  try 
+  {
+    const garbageArray = await Garbage.find({}).populate("postedBy"); 
+    console.log(garbageArray)
+    res.json(garbageArray)
+
+
+  }
+  catch (e)
+  {
+         res.status(422).send(e)
+  }
+
+
+ 
+  // Garbage.find({}).lean().exec( (error, garbageSpots) => {
+  //   if(!error){
+  //       return res.json(garbageSpots)
+  //   }
+  //   else{
+  //       res.status(422).send(error)
+  //   }
     
-  })
+  // })
 }
 //
 // router.post('/newGarbage', requireLogin, (req, res) => {
