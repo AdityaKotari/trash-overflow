@@ -16,6 +16,7 @@ import Leaderboard from './components/screens/Leaderboard';
 import SignUp from './components/screens/SignUp/SignUp';
 import LogIn from './components/screens/LogIn/LogIn';
 import Profile from './components/screens/Profile'; 
+import SocialFeed from './components/screens/SocialFeed'
 
 import 'leaflet/dist/leaflet.css';
 
@@ -55,7 +56,9 @@ const Routing = () =>
     </Route>
     <Route path="/signup">
       <SignUp />
-
+    </Route>
+    <Route path="/SocialFeed">
+      <SocialFeed />
     </Route>
    
 

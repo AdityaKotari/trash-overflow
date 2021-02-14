@@ -35,6 +35,11 @@ const Sidenav = () => {
                 person
               </i>Profile
          </NavLink></li>
+         <li><NavLink className="sidenav-close" to = "/SocialFeed">
+              <i class=" indigo-text small-text material-icons">
+                feed
+              </i>Social
+         </NavLink></li>
 
   </ul>
         </div>

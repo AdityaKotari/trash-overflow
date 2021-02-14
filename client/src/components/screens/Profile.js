@@ -5,7 +5,7 @@ import './Profile.css'
 
 
 const profileBanner ={
-    height: '461px',
+    height: '70vh',
     width: '100%',
     background: 'linear-gradient(135deg, rgba(26,35,126,1) 0%, rgba(87,99,230,1) 100%)',
 }
