@@ -6,6 +6,7 @@ import { geolocated } from "react-geolocated";
 
 import {Link,NavLink,useHistory} from 'react-router-dom'
 import M from 'materialize-css'
+import { set } from 'mongoose';
 
 export const icon = new Icon({
   iconUrl: "/images/placeholder.svg",
@@ -14,6 +15,7 @@ export const icon = new Icon({
 
 const CreateAd = (props) => {
     const history = useHistory()
+    const [address,setAddress] = useState("")
     const [title,setTitle] = useState("")
     const [center,setCenter] = useState([0,0])
     const [lat,setLat] = useState("")
@@ -26,7 +28,11 @@ const CreateAd = (props) => {
     const [photoURL, setPhotoURL ] = useState("")
     const {isGeolocationAvailable,isGeolocationEnabled, coords } = props; 
    
-    
+    useEffect(() => {
+        M.toast({html: "Obtaining your location...",classes:"#01579b light-blue darken-4", 
+        completeCallback: function(){ M.toast({html:"Location traced",classes:"#43a047 green darken-1"
+     })}} )
+    }, [])
     
   useEffect(()=>{
        if (coords)
@@ -72,14 +78,15 @@ const CreateAd = (props) => {
 useEffect(() => {
      if (photoURL)
      {
-        
+        console.log("Lat", lat); 
+        console.log("Lng", lng)
         fetch("/garbage/newGarbage",{
             method:"post",
             headers:{
                 "Content-Type":"application/json",
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             },
-            body:JSON.stringify({lng, lat, reward, description, photoURL, title})
+            body:JSON.stringify({lng, lat, reward, description, photoURL, title, address})
         }).then(res=>res.json())
         .then(data=>{
     
@@ -141,24 +148,15 @@ useEffect(() => {
   </nav>
   
   
-       <div className="z-depth-1 grey lighten-4 row" style={{ display: "inline-block", padding: "0px", border: "1px solid #EEE" }}>
-      <div className="container">
+       <div className="z-depth-1 grey lighten-4 row" style={{ display: "inline-block", padding: "48px", border: "1px solid #EEE" }}>
+ 
           <div className="center">
            <form className="col s12" onSubmit={(e)=>{e.preventDefault()}}>
             
                <div className='row'>
                 
 
-                    <div class="input-field col s7">
-                   <i class="material-icons prefix indigo-text">location_on</i>
-                       <input   id="first_name" type="text" className="validate geog"  value = {lat.toString()} onChange={(e)=>setLat(e.target.value)} />
-                       
-                   </div>
-                   <div class="input-field col s5">
-                   
-                       <input   id="first_name" type="text" className="validate geog"  value = {lng.toString()} onChange={(e)=>setLat(e.target.value)} />
-                       
-                   </div>
+                  
                   
                </div>
   
@@ -176,7 +174,16 @@ useEffect(() => {
                        <label for='reward'>Title</label>
                    </div>
                </div>
-  
+
+         <div className="row">
+           
+         <div className='input-field col s12'>
+                            <i className="material-icons prefix indigo-text">location_city</i>
+                            <input className='validate' type="text" className="validate" value={address} onChange={(e) => setAddress(e.target.value)} />
+                            <label for='address'>Location name</label>
+                        </div>
+         </div>
+
                <div className="row">
                    <form className="col s12">
                        <div className="row">
@@ -215,7 +222,7 @@ useEffect(() => {
 
 
 
-   </div>
+   
        
 
 

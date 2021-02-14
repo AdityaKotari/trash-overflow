@@ -8,8 +8,8 @@ app.use(express.urlencoded({
   extended: false
 }));
 app.use(express.json());
-app.use('/profile', require('./controllers/profile.js'));
-app.use('/garbage', require('./controllers/garbage_spots.js'));
+app.use('/profile', require('./routes/profile.js'));
+app.use('/garbage', require('./routes/garbage_spots.js'));
 app.use(router);
 
 app.listen(port, () => {
