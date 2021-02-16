@@ -19,7 +19,7 @@ The Node.js server will start listening at port **5000**
 Now, time for the React app 
 Do these
 ```
-cd my-app
+cd client
 npm install 
 npm start
 ```
