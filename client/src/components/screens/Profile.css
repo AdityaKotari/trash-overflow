@@ -1,0 +1,18 @@
+.profileBanner {
+    height: 400px;
+    width: 100%;
+    background: rgb(26,35,126);
+    background: linear-gradient(90deg, rgba(26,35,126,1) 0%, rgba(87,99,230,1) 100%);
+}
+
+.imgStyle {
+    padding: '20px';
+    width: '10%';
+    height: auto;
+    border-radius: '150px';
+  }
+
+.nameStyle{
+    font: Roboto;
+    color: white;
+}

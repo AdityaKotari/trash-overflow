@@ -28,4 +28,10 @@ npm start
 
 The React app will be accessible at port **3000**
 
+### Screenshots 
+![SS1](screenshots/SS1.jpg)
+![SS2](screenshots/SS2.jpg)
+![SS3](screenshots/SS3.jpg)
+![SS4](screenshots/SS4.jpg)
+
 
